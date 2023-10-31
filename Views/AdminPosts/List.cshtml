@@ -1,0 +1,57 @@
+﻿@using Techblog.Models.DomainModels;
+@model List<Techblog.Models.DomainModels.TechPost>
+@{
+}
+<div class="bg-light bg-opacity-25 py-2">
+    <div class="container">
+        <h1>Below Is A List Of Your Post(s)</h1>
+    </div>
+</div>
+
+<div class="container py-2">
+
+        @if (Model != null && Model.Any())
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td>Id</td>
+                        <td>Heading</td>
+                        <td>Tags</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                @foreach (var techPost in Model)
+                {
+                    <tr>
+                        <td>@techPost.Id</td>
+                        <td>@techPost.Heading</td>
+                        <td>
+                        <div class="tags">
+                            
+                                @foreach (var tag in techPost.Tags)
+                                {
+                                <span>@tag.Name</span>
+                                }
+                                                  
+                        </div>
+                            
+                                 <a asp-area="" 
+                                    asp-action="Edit" 
+                                    asp-controller="AdminPosts" 
+                                    asp-route-id="@techPost.Id">
+                                    Edit
+                                </a>
+                            </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p>No Posts Where Found</p>
+        }
+    
+</div>

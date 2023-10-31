@@ -1,0 +1,40 @@
+﻿@model Techblog.Models.ViewModels.EditTagRequest
+@{
+}
+<div class="bg-light bg-opacity-25 py-2">
+    <div class="container">
+        <h1>Edit Tag(s)</h1>
+    </div>
+</div>
+
+<div class="container py-5">
+    @if(Model != null)
+    {
+        <form method="post">
+            <div class="mb-3">
+                <label class="form-label"> TagId </label>
+                <input type="text" id="id" class="form-control" readonly asp-for="TagId" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label"> Name </label>
+                <input type="text" id="name" class="form-control " asp-for="Name" />
+            </div>  <div class="mb-3">
+                <label class="form-label"> Display Name</label>
+                <input type="text" id="displayName" class="form-control " asp-for="DisplayName" />
+            </div>
+            <div class="mb-3">
+                <div class="d-flex">
+                    <button class="btn" style="background: #1A1F71; color: #FAFAFA;border-radius: 10px" type="submit">Update</button>
+                    <button class="btn" style="background: #1A1F71; color: red;border-radius: 10px" type="submit" asp-area="" asp-controller="AdminTags" asp-action="Delete">Delete</button>
+                </div>
+
+            </div>
+
+        </form>
+    }
+    else
+    {
+        <p>No Tag Found</p>
+    }
+
+</div>

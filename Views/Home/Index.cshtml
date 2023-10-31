@@ -1,0 +1,121 @@
+﻿@model Techblog.Models.ViewModels.HomeViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<div class="container col-xxl-8 py-4 py-5" id="section">
+     <div class="row align-items-center g-5 py-5">
+         <div class="col-12 col-lg-6">
+           <h1 class="blogHead">
+               TechBloggX <br />
+                <span>The World Of Tech Ethusiasts</span>
+           </h1>
+           <p class="lead">
+                TechBloggX is the home of coding to aspiring and software industry experts
+                 around the globe. Covering a vast range of topics like HTML,CSS,Javascript,Python,ASP.NET etc.
+               Want to stay up to date on the latest technology
+                improvements? Join TechBloggX fanbase and get weekly blogs in your email.
+           </p>
+         </div>
+
+        <div class="col-12 col-lg-6">
+            <!-- Swiper -->
+           <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="/Images/12.jpg" />
+                        <span class="img-thumbnail">Information Age</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="/Images/2.jpg" />
+                        <span class="img-thumbnail">Computers for Good</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="/Images/1.jpg" />
+                        <span class="img-thumbnail">Artificial Intelligence</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="/Images/4.jpg" />
+                        <span class="img-thumbnail">Quantum Computing</span>
+                    </div> 
+                    <div class="swiper-slide">
+                        <img src="/Images/6.jpg" />
+                        <span class="img-thumbnail">Virtual Reality</span>
+                    </div>
+                   <div class="swiper-slide">
+                        <img src="/Images/8.jpg" />
+                        <span class="img-thumbnail">Computers & the Brain</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="/Images/9.jpg" />
+                        <span class="img-thumbnail">Computers & the Arts</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="/Images/3.jpg" />
+                        <span class="img-thumbnail">Cybersecurity</span>
+                    </div>
+                   
+                   
+        </div>
+     </div> 
+</div>
+
+<div class="container">
+            <div>
+        <div class="tags">
+            @if(Model != null && Model.Tags.Any())
+            {
+                @foreach (var tag in Model.Tags)
+                {
+                    <h6><span class="bagde">@tag.Name</span></h6>
+                }
+            }
+        </div>
+    </div>
+</div>
+
+<div class="container-posts">
+        <div>
+                <div class="col-14 flex-md-column justify-content-center ">
+                 @if(Model != null && Model.TechPosts.Any())
+                     {
+                          @foreach(var tech in Model.TechPosts)
+                            {
+                            <div class="bg-light col-12 mb-5 p-5 d-flex flex-column justify-content-center align-items-center">
+                                  <img src="@tech.FeaturedImageUrl" alt="@tech.Heading"
+                                     class="mt-2" />
+
+                                <h2 class="mt-2" style="color: #F7B600">@tech.Heading</h2>
+                                    <p class="mb-0 align-self-start">
+                                        Author: @tech.Author
+                                    </p>
+                                <p class="mt-2 align-self-start">
+                                    Published Date: @tech.PublishedDate.ToShortDateString()
+                                </p>
+                                    <div >
+                                        <div class="tags">
+                                         
+                                                @foreach (var tag in tech.Tags)
+                                                {
+                                                    <span>@tag.Name</span>
+                                                }
+                                            
+                                        </div>
+                                    </div>
+                                <p>@tech.ShortDescription</p>
+
+                                        <a class="btn btn-outline-dark"
+                                           asp-area="" 
+                                           asp-controller="PostsRoute" 
+                                           asp-action="Index" 
+                                           asp-route-urlHandle="@tech.UrlHandle">Read More
+                                       </a>
+                              </div>
+                            }
+                     }
+             </div>
+        </div>
+</div>
+

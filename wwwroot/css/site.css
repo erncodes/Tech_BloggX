@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Young+Serif&display=swap');
+* {
+    font-family: 'Young Serif', serif !important;
+}
+
+html
+    {
+      font-size: 16px;
+    }
+
+    @media (min-width: 768px) 
+    {
+      html 
+      {
+        font-size: 20px;
+      }
+    }
+
+    html 
+    {
+      position: relative;
+      min-height: 100%;
+    }
+
+    body
+    {
+        margin-bottom: 60px;
+        background: white;
+    }
+    nav
+    {
+        height:150px;
+        align-items:center;
+        background: #F7B600;
+    }
+    nav a 
+    {
+        font-size: 16px;
+        text-decoration:none;
+        letter-spacing: 2px;
+    }
+    nav .blogbrand {
+         color: #1A1F71;
+         font-size: 30px;
+         font-weight: bold;
+    }
+        nav .x-span {
+            color: #FAFAFA;
+            font-size: 60px;
+            transform: translateY(5px);
+        }
+    nav .nav-link 
+    {
+         color: #FAFAFA;
+    }
+        nav .logged-user {
+            color: #FAFAFA;
+            margin: 5px;
+        }
+.blogHead {
+    color: darkblue;
+}
+    .blogHead span {
+        color: #F7B600;
+        font-size: 32px;
+    }
+.lead
+{
+    color: gray;
+}
+.container-posts {
+    background: linear-gradient(to bottom,white,#1A1F71,white);
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+    .container-posts .post 
+    {
+        margin: 30px;
+        background: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+.container-posts  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-posts img {
+    width: 850px;
+    height: 500px;
+    margin-bottom: 8px;
+}
+
+    .swiper {
+        width: 60%;
+        padding-top: 50px;
+    }
+
+.swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 250px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+    .swiper-slide img {
+        display: block;
+        width: 100%;
+        position: relative;
+    }
+.img-thumbnail {
+    background: black;
+    color: white;
+    position: absolute;
+    border: none;
+    outline: none;
+    bottom: 0;
+    font-weight: 400;
+    width: 100%;
+}
+.tags {
+    display: flex;
+    flex-direction: row;
+    margin: 2px;
+    color: white;
+}
+    .tags span {
+        margin: 5px;
+        background: gray;
+        border-radius: 8px;
+        padding: 3px;
+        margin-bottom: 8px;
+    }
+

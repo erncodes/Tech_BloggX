@@ -1,0 +1,36 @@
+﻿@model Techblog.Models.DomainModels.TechPost 
+@{
+    ViewData["Title"] = Model.PageHeading;
+}
+<div class="container container-posts">
+    <div class="row justify-content-center">
+        <div class="col-10 bg-light d-flex flex-md-column justify-content-center">
+
+            @if(Model != null)
+            {
+                <h1 class="mb-3 fw-bold">@Model.Heading</h1>
+
+                <div class="d-flex justify-content-between mb-3">
+                    <span class="text-secondary mb-2">@Model.Author</span>
+                    <span class="text-secondary">@Model.PublishedDate.ToShortDateString()</span>
+                </div>
+
+                <div class="tags mb-3">
+                    @foreach (var tag in Model.Tags)
+                    {
+                        <span>@tag.Name</span>
+                    }
+                </div>
+                <img src="@Model.FeaturedImageUrl" class="d-block img-fluid mb-4 align-self-center"/>
+
+                <div class="mb-3 blog-details-content">
+                    @Html.Raw(Model.Content)
+                </div>
+            }
+            else
+            {
+                <p> Blog Post Not Found!</p>
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+﻿@using Techblog.Models.DomainModels;
+@model List<Tag>
+@{
+}
+<div class="bg-light bg-opacity-25 py-2">
+    <div class="container">
+        <h2>Tag List</h2>
+    </div>
+</div>
+<div class="container py-5">
+    @if (Model != null && Model.Any())
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Tag Id</th>
+                    <th>Name</th>
+                    <th>Display Name</th>
+                    <th> </th>
+                </tr>
+
+            </thead>
+            <tbody>
+                @foreach (var tag in Model)
+                {
+                    <tr>
+                        <td>@tag.TagId</td>
+                        <td>@tag.Name</td>
+                        <td>@tag.DisplayName</td>
+                        <td>
+                            <a asp-area="" asp-controller="AdminTags" asp-action="Edit" asp-route-id="@tag.TagId">Edit</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No Tags Found</p>
+    }
+</div>
